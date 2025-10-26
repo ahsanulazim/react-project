@@ -1,7 +1,8 @@
+import { useContext } from "react";
+import { ProductContext } from "../../../context/MyContext";
+
 export default function ProductCard({ product }) {
-  const addToCart = (p) => {
-    console.log(p);
-  };
+  const { addToCart } = useContext(ProductContext);
 
   return (
     <div className="card bg-base-100 shadow-sm">
@@ -13,7 +14,7 @@ export default function ProductCard({ product }) {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{product.title}</h2>
+        <h2 className="card-title text-base">{product.title}</h2>
         <p className="truncate">{product.description}</p>
         <p className="font-bold text-lg text-red-600">${product.price}</p>
         <div className="card-actions">

@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { FaTrash } from "react-icons/fa6";
+import { ProductContext } from "../../../context/MyContext";
 
 export default function SideCart() {
+  const { cartedProducts, removeFromCart } = useContext(ProductContext);
+  const total = cartedProducts
+    .reduce((acc, product) => acc + product.price * product.quantity, 0)
+    .toFixed(2);
+
+  console.log(cartedProducts);
+
   return (
     <div className="drawer-side">
       <label
@@ -10,24 +19,38 @@ export default function SideCart() {
       ></label>
       <ul className="menu bg-base-200 min-h-full w-80 p-4">
         {/* Sidebar content here */}
-        <li>
-          <div>
-            <img
-              className="aspect-square object-cover size-10 p-1 bg-base-300 rounded-md"
-              src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png"
-              alt="Product Name"
-            />
-            <div>
-              <h2 className="truncate max-w-44">
-                Product Nameajgfohsadouihgsdophgsdopfghsdofhgsdohfghsdfhgo
-              </h2>
-              <p>Price</p>
-            </div>
-            <button className="btn btn-xs">
-              <FaTrash />
-            </button>
-          </div>
-        </li>
+        {cartedProducts.length > 0 ? (
+          cartedProducts.map((product) => (
+            <li key={product.id}>
+              <div>
+                <img
+                  className="aspect-square object-contain size-10 p-1 bg-base-300 rounded-md"
+                  src={product.image}
+                  alt={product.title}
+                />
+                <div>
+                  <h2 className="truncate font-bold max-w-44">
+                    {product.title}
+                  </h2>
+                  <p>
+                    {`$${product.price} × ${product.quantity} = $${
+                      product.price * product.quantity
+                    }`}
+                  </p>
+                </div>
+                <button
+                  className="btn btn-xs btn-error"
+                  onClick={() => removeFromCart(product.id)}
+                >
+                  <FaTrash />
+                </button>
+              </div>
+            </li>
+          ))
+        ) : (
+          <li>Empty Cart</li>
+        )}
+        <li>Total = ${total}</li>
       </ul>
     </div>
   );
