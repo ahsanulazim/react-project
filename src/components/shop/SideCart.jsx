@@ -5,8 +5,6 @@ import { ProductContext } from "../../../context/MyContext";
 export default function SideCart() {
   const { cartedProducts, removeFromCart, total } = useContext(ProductContext);
 
-  console.log(cartedProducts);
-
   return (
     <div className="drawer-side">
       <label

@@ -50,6 +50,12 @@ export default function MyContext({ children }) {
     .reduce((acc, product) => acc + product.price * product.quantity, 0)
     .toFixed(2);
 
+  //Total Quantity
+  const totalQuantity = cartedProducts.reduce(
+    (acc, product) => acc + Number(product.quantity),
+    0
+  );
+
   //Update Quantity
   const updateQuantity = (id, quantity) => {
     setCartedProducts((prev) =>
@@ -66,6 +72,7 @@ export default function MyContext({ children }) {
     removeFromCart,
     total,
     updateQuantity,
+    totalQuantity,
   };
 
   return <ProductContext value={data}>{children}</ProductContext>;
