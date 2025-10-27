@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ProductContext } from "../../../context/MyContext";
+import { Link } from "react-router";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(ProductContext);
@@ -14,8 +15,10 @@ export default function ProductCard({ product }) {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-sm">{product.title}</h2>
-        <p className="truncate">{product.description}</p>
+        <Link to={`/shop/${product.id}`}>
+          <h2 className="card-title text-sm">{product.title}</h2>
+          <p className="truncate">{product.description}</p>
+        </Link>
         <p className="font-bold text-lg text-red-600">${product.price}</p>
         <div className="card-actions">
           <button

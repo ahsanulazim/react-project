@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import Cart from "../shop/Cart";
 
 export default function Header() {
@@ -33,15 +33,13 @@ export default function Header() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/" className="active">
-              Home
-            </Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/shop">Shop</Link>
+            <NavLink to="/shop">Shop</NavLink>
           </li>
           <li>
-            <Link to="/checkout">Checkout</Link>
+            <NavLink to="/checkout">Checkout</NavLink>
           </li>
         </ul>
       </div>
