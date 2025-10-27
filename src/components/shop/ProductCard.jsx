@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-base">{product.title}</h2>
+        <h2 className="card-title text-sm">{product.title}</h2>
         <p className="truncate">{product.description}</p>
         <p className="font-bold text-lg text-red-600">${product.price}</p>
         <div className="card-actions">

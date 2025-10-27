@@ -4,7 +4,7 @@ import { FaTrash } from "react-icons/fa6";
 import { Link } from "react-router";
 
 export default function Invoice() {
-  const { cartedProducts, removeFromCart, addToCart, updateQuantity } =
+  const { cartedProducts, removeFromCart, updateQuantity } =
     useContext(ProductContext);
 
   return (

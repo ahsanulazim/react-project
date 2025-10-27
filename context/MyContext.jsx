@@ -4,7 +4,10 @@ export const ProductContext = createContext();
 
 export default function MyContext({ children }) {
   const [products, setProducts] = useState(null);
-  const [cartedProducts, setCartedProducts] = useState([]);
+  const [cartedProducts, setCartedProducts] = useState(() => {
+    const stored = localStorage.getItem("cartedProducts");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   // Fetch all products once
   useEffect(() => {
@@ -31,6 +34,11 @@ export default function MyContext({ children }) {
       }
     });
   };
+
+  //Cart Data to Local Storage
+  useEffect(() => {
+    localStorage.setItem("cartedProducts", JSON.stringify(cartedProducts));
+  }, [cartedProducts]);
 
   // Remove product from cart
   const removeFromCart = (id) => {

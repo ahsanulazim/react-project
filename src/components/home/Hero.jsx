@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Hero() {
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -9,7 +11,9 @@ export default function Hero() {
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <Link to="/shop">
+            <button className="btn btn-primary">Get Started</button>
+          </Link>
         </div>
       </div>
     </div>

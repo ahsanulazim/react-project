@@ -11,24 +11,31 @@ export default function Checkout() {
   return (
     <Section>
       <Breadcrums path="Checkout" />
-      {/* <img
-        src="/empty-cart.svg"
-        alt="empty cart"
-        className="max-w-80 mx-auto"
-      />
-      <div className="text-center">
-        <h2 className="mb-5">Shopping Cart is Empty!</h2>
-        <Link to="/shop">
-          <button className="btn btn-primary">Start Shopping</button>
-        </Link>
-      </div> */}
       <div className="bg-base-100 p-4 rounded-md">
         <h1 className="text-3xl font-bold">Shopping Cart</h1>
-        <Invoice />
-        <div>
-          <span>Total: </span>
-          <span>{total}</span>
-        </div>
+        {cartedProducts.length > 0 ? (
+          <>
+            <Invoice />
+            <div>
+              <span>Total: </span>
+              <span>{total}</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <img
+              src="/empty-cart.svg"
+              alt="empty cart"
+              className="max-w-80 mx-auto"
+            />
+            <div className="text-center">
+              <h2 className="mb-5">Shopping Cart is Empty!</h2>
+              <Link to="/shop">
+                <button className="btn btn-primary">Start Shopping</button>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </Section>
   );
