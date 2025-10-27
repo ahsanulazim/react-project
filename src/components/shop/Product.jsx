@@ -28,6 +28,7 @@ export default function Product() {
             <div>
               <h1 className="text-5xl font-bold">{product?.title}</h1>
               <p className="py-6">{product?.description}</p>
+              <p>${product?.price}</p>
               <PurchaseBtn pid={product?.id} />
             </div>
           </div>
