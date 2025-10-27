@@ -5,7 +5,6 @@ export const ProductContext = createContext();
 export default function MyContext({ children }) {
   const [products, setProducts] = useState(null);
   const [cartedProducts, setCartedProducts] = useState([]);
-  const [total, setTotal] = useState(0);
 
   // Fetch all products once
   useEffect(() => {
@@ -38,11 +37,27 @@ export default function MyContext({ children }) {
     setCartedProducts((prev) => prev.filter((p) => p.id !== id));
   };
 
+  //Total Products
+  const total = cartedProducts
+    .reduce((acc, product) => acc + product.price * product.quantity, 0)
+    .toFixed(2);
+
+  //Update Quantity
+  const updateQuantity = (id, quantity) => {
+    setCartedProducts((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, quantity: quantity } : item
+      )
+    );
+  };
+
   const data = {
     products,
     addToCart,
     cartedProducts,
     removeFromCart,
+    total,
+    updateQuantity,
   };
 
   return <ProductContext value={data}>{children}</ProductContext>;

@@ -3,7 +3,7 @@ import Cart from "../shop/Cart";
 
 export default function Header() {
   return (
-    <header className="navbar bg-base-300 w-full">
+    <header className="navbar bg-base-200 w-full">
       <div className="navbar-start">
         <div className="flex-none lg:hidden">
           <label
@@ -39,6 +39,9 @@ export default function Header() {
           </li>
           <li>
             <Link to="/shop">Shop</Link>
+          </li>
+          <li>
+            <Link to="/checkout">Checkout</Link>
           </li>
         </ul>
       </div>

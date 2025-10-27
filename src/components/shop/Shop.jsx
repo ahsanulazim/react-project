@@ -9,7 +9,7 @@ export default function Shop() {
 
   return (
     <Section>
-      <Breadcrums />
+      <Breadcrums path="Shop" />
       <h1 className="text-center font-bold text-4xl uppercase mb-8">My Shop</h1>
       {products ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">

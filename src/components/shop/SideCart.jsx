@@ -3,10 +3,7 @@ import { FaTrash } from "react-icons/fa6";
 import { ProductContext } from "../../../context/MyContext";
 
 export default function SideCart() {
-  const { cartedProducts, removeFromCart } = useContext(ProductContext);
-  const total = cartedProducts
-    .reduce((acc, product) => acc + product.price * product.quantity, 0)
-    .toFixed(2);
+  const { cartedProducts, removeFromCart, total } = useContext(ProductContext);
 
   console.log(cartedProducts);
 

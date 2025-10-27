@@ -5,16 +5,20 @@ import Footer from "./components/ui/Footer";
 import Navbar from "./components/ui/Navbar";
 import Login from "./components/auth/Login";
 import Shop from "./components/shop/Shop";
+import Checkout from "./components/shop/Checkout";
 
 function App() {
   return (
     <>
       <Navbar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/shop" element={<Shop />} />
-        </Routes>
+        <main className="bg-base-300">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+        </main>
       </Navbar>
       <Footer />
     </>

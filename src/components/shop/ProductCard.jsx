@@ -8,7 +8,7 @@ export default function ProductCard({ product }) {
     <div className="card bg-base-100 shadow-sm">
       <figure>
         <img
-          className="aspect-square object-contain"
+          className="aspect-square object-contain p-5"
           src={product.image}
           alt={product.title}
         />
